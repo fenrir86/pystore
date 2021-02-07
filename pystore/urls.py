@@ -25,9 +25,10 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("products/", include("products.urls")),
+    path("cart/", include("cart.urls")),
     path("", include("pages.urls")),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    #urlpatterns += [path("__debug__/", include(debug_toolbar.urls))]
+    urlpatterns += [path("__debug__/", include(debug_toolbar.urls))]

@@ -39,10 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    #apps de terceiros
+    'debug_toolbar',
+    'widget_tweaks',
+
     #my apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'pystore.urls'
@@ -140,3 +147,6 @@ AUTH_USER_MODEL = "users.User"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+CART_SESSION_ID = "cart"
+CART_ITEM_MAX_QUANTITY = 20
